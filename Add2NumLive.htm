@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			
+			$('#input1, #input2').keyup(function() {
+                // alert("HIi")
+				var in1=parseFloat($('#input1').val()) || 0;
+                var in2=parseFloat($('#input2').val()) || 0;
+                var output= in1 + in2;
+                // alert("Hii")
+                $('#output').val(output);
+			})
+           
+
+		});
+	</script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td ><input type="text" id="input1"></td>
+            <td > <input type="text" id="input2"></td>
+        </tr>
+        <tr>
+            <td> Answer <br> </td> 
+            <td> <input type="text" id="output"> </td>
+        </tr>
+    </table>
+    
+</body>
+</html>
