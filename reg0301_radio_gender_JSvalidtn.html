@@ -1,0 +1,183 @@
+<html>
+<head>
+<title> Document </title>
+</head>
+<body>
+<form action="index.html" name="myForm" method="post" onsubmit="return validate()">
+<table border="2" align="center">
+	<tr> 
+	<td  colspan ="2" align = "center">Registration Form 
+	</td>
+	</tr>
+	
+	<tr>
+	<td> First Name*</td>
+	<td> <input type="text" name="firstname" id="firstname"  </td>
+	</tr>
+	
+	<tr>
+	<td> Last Name</td>
+	<td> <input type="text" name="lastname" id="lastname" </td>
+	</tr>
+	
+	<tr>
+	<td> Email*</td>
+	<td> <input type="text" name="email" id="email"  </td>
+	</tr>
+	
+	<tr>
+	<td> Password*</td>
+	<td> <input type="password" name="password" id="password" </td>
+	</tr>
+	
+	<tr>
+	<td>Phone*</td>
+	<td> <input type="text" name="phone" id="phone" </td>
+	</tr>
+	
+	<tr>
+	<td>Address</td>
+	<td> <textarea name="address" id="Address"></textarea> </td>
+	</tr>
+	
+	<tr>
+	<td>Gender </td>
+	<td> <select name="gender"> 
+		<option value=""> Select </option>
+		<option value="male"> Male</option> 
+		<option value="female"> Female</option> 
+		<option value="none"> Prefer Not To Say</option> 
+	
+	</select> </td>
+	</tr>
+	
+	<tr>
+	<td>Language </td>
+	<td> <input type="checkbox" name="checkbox" value="Hindi">
+	<label> Hindi </label> <br>
+	<input type="checkbox" name="checkbox" value="Bengali" >
+	<label> Bengali </label><br>
+	<input type="checkbox" name="checkbox" value="English" >
+	<label> English </label>
+		
+	</td>
+	</tr>
+	
+	<tr>
+	<td>Country </td>
+	<td> 
+	
+	<input type="radio" name ="country" value="India" <label> India </label>  <br>
+	<input type="radio" name="country" value="England" <label> England </label> <br>
+	<input type="radio" name ="country" value="USA" <label> USA </label> <br>	
+	</td>
+	</tr>
+	
+	<tr> 
+	<td> Upload Image &nbsp </td>
+	<td colspan ="1"> <input type="file" name="photo" value="photo"> 
+	</td>
+	</tr>
+	<tr>
+	<td colspan ="2"align="center"> 
+	<button><a href="index.html" > HomePage  </a> </button>
+	<button><input type="Submit"></button>
+	<input type="Reset">
+	</td>
+	
+	</tr>
+	
+</table>
+</form>
+
+<script>
+function validate(){
+            let fname=document.myForm.firstname.value;
+            let lname=document.myForm.lastname.value;
+            let pass=document.myForm.password.value;
+            let email= document.myForm.email.value;
+            let phone=document.myForm.phone.value;
+            let address=document.myForm.address.value;
+            let gender=document.myForm.gender;
+            let country=document.myForm.country.value;
+            //alert(country);
+            let language= document.myForm.checkbox;
+            //alert(language.checked);
+            let photo= document.myForm.photo.value;
+            alert(photo);
+            
+            if(fname==""){
+                alert(" Please enter a valid name");
+                document.myForm.email.focus();
+                return false;
+            }
+            
+            //Email validation
+            var flag=false;
+            for(var i=0;i<email.length;i++){
+                if(email.charAt(i)=='@') flag=true;
+            }
+            if(flag==false){
+            alert("Please enter a valid email adress");
+            return false;
+            }
+            
+            //Password Validation
+            else if(pass.length <8){
+             alert("your password is too weak");
+             document.myForm.password.focus();
+             return false;
+            }
+            
+            //Phone Number Validation
+            else if(phone.length !=10){
+                alert("Please select a 10 digit number ");
+                document.myForm.phone.focus();
+            return false;
+        	}
+        	else if(isNaN(phone)){
+                alert("Mobile number can only contain numbers");
+                document.myForm.email.focus();
+            return false;
+        	}
+        	
+        	//RadioButton Validation
+            else if(country == "") {
+            alert("select a country");
+            
+            return false;
+            }
+            
+            //DropDown(Gender) Validation
+            else if(gender.value ==""){
+            alert("please choose your gender");
+            return false;
+            }
+            
+            //Checkbox(Language) Validation
+           var ch=0;
+           for(var i=0;i<language.length;i++){
+           if(language[i].checked){
+            ch++;
+            return true;
+           }
+           }
+           if(ch==0) {
+           alert("Please select a language");
+           return false;
+           }
+           
+           //File Validation only jpg and png accepted
+           if(photo ==null){
+           alert("Please insert a file");
+           return false;
+           }
+           
+           
+           
+           
+           
+        }
+</script>
+</body>
+</html>

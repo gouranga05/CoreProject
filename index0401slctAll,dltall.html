@@ -1,0 +1,131 @@
+<html>
+<head>
+<title> Document </title>
+</head>
+<body>
+	<script>
+	function valid(){
+		confirm("Press a button!\nEither OK or Cancel.");
+
+	}
+	function checkboxes(){
+		// alert(document.listing.intro.value )
+		 let checks=document.listing.select;
+		// if(document.listing.intro.value == 0) document.listing.intro.checked=true;
+		if(document.listing.intro.checked == true){
+			// document.listing.select[0].checked=true;
+			// document.listing.select[1].checked=true;
+			for(var i=0;i<checks.length;i++){
+				document.listing.select[i].checked=true;
+			}
+			return true;
+		}
+		// else{
+		// let all=0;
+		// for(var i=0;i<checks.length;i++){
+		// 		if(document.listing.select[i].checked==true) all++;
+		// 	}
+		// 	if(all==checks.length) document.listing.intro.checked=true;
+		// }
+		
+	}
+	intro.addEventListener('change', checkboxes);
+	function deselect(){
+		let checks=document.listing.select;
+		for(var i=0;i<checks.length;i++){
+			if(document.listing.select[i].checked == false){
+				document.listing.intro.checked= false;
+			}
+		}
+		checks.addEventListener('change', deselect);
+	}
+	function deleting(){
+		let checks=document.listing.select;
+		let count=0;
+		for(var i=0;i<checks.length;i++){
+			if(checks[i].checked== true){
+				confirm("Are you sure to delete the item??")
+				return;
+			}
+			else{
+				count++;
+			}
+		}
+		alert("Please select at least 1 identity to delete !!!!");
+	}
+
+	</script>
+<form action="" name="listing" >
+<table align="center" border="0"  width="480">
+		<tr>
+		<td align="center">
+			<input type="text"> 
+		
+			<input type="button" value="Search">
+		</td>
+		<td align="right"> 
+		<button><a href="reg.html"> +New </a></button>
+		</td>
+		</tr>
+</table>
+<table border="1" align="center">
+	<tr align="center" border="2">
+		
+	<tr>
+	<tr> 
+	<td onclick="checkboxes()"> <input type="checkbox" name ="intro" value="0"> </td>
+	<td><u><b> First Name </td>
+	<td><u><b> Last Name </td>
+		<td><u><b> Image </td>
+	<td align="center"><u><b> Email </td>
+	<td><u><b> Phone </td>
+	<td align="center"><u><b> Action </td>
+	<tr>
+	<hr>
+	
+	<tr> 
+	<td onclick="deselect()"> <input type="checkbox" name="select" value="2"> </td>
+	<td> RamShankar</td>
+	<td> HatiKheda </td>
+	<td> <img src="#"></td>
+	<td> ramu@gmail.com </td>
+	<td> 101 </td>
+	<td><button>EDIT</button>
+		<button onclick="confirm('Are you sure to delete the data??');">DELETE</button></td>
+	<tr>
+	
+	<tr> 
+	<td onclick="deselect()"> <input type="checkbox" name="select" value="2"> </td>
+	<td> Gouranga</td>
+	<td> Kamilya </td>
+	<td> <img src="#"></td>
+	<td> gk@gmail.co.in </td>
+	<td> 8975 </td>
+	
+	<td><button>EDIT</button>
+	<button onclick="confirm('Are you sure to delete the data??');">DELETE</button></td>
+	
+	
+	<tr> 
+	<td onclick="deselect()"> <input type="checkbox" name="select" value="2"> </td>
+	<td> Core</td>
+	<td> Lynx </td>
+	<td> <img src="#"></td>
+	<td> c0relynx@gmail.com </td>
+	<td> 101 </td>
+	<td><button>EDIT</button>
+		<button onclick="confirm('Are you sure to delete the data??');" name="deletee">DELETE</button></td>
+	<tr>
+
+		<td colspan="6" align="center"><button input type="submit" align="center">Submit</button>
+		<button input type="reset" align="center">Reset</button>
+		<button onclick="deleting()" type="reset" align="center">Delete</button>
+	</td>
+	</tr>
+	
+	
+
+</table>
+</form>
+</body>
+</html>
